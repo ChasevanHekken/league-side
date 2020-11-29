@@ -1,27 +1,28 @@
 # league-side
 
-1. Ran with "rails new league-side --api --database=postgresql"
-2. DB connection info in config/database.yml
+1. Ran with ```rails new league-side --api --database=postgresql```
+2. ```bundle install```
+3. DB connection info in config/database.yml (PostgreSQL)
   ```
     database: league_side_development
     username: league_side
     password: test
   ```
-3. ```rails db:drop db:create db:migrate db:seed```
-4. Create league endpoint: 
+4. ```rails db:drop db:create db:migrate db:seed```
+5. Create league endpoint: 
   ```
     curl --request POST \
       --url http://localhost:3000/leagues \
       --header 'Content-Type: application/json' \
       --data '{
-      "name": "insomnia",
-      "latitude": 54.32,
-      "longitude": 21.56,
+      "name": "Big League",
+      "latitude": 1.5,
+      "longitude": 1.5,
       "purchase_price": 3500
     }'
   ```
-5. Find leagues endpoint:
+6. Find leagues endpoint:
   ```
     curl --request GET \
-      --url 'http://localhost:3000/find_leagues?latitude=21.21&longitude=73.91&radius=42&total_budget=38000'
+      --url 'http://localhost:3000/find_leagues?latitude=1.0&longitude=1.0&radius=25&total_budget=8000'
   ```
